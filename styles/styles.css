@@ -1,0 +1,240 @@
+*{
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    color:white;
+    
+}
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(226, 43%, 10%)
+}
+main{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(max-content, 170px));
+    grid-template-rows: repeat(2,minmax(max-content, 180px));
+    gap:1em;
+}
+
+.box_content-user-time{
+    grid-row: span 2;
+    border-radius: .7em;
+    overflow: hidden;
+    background-color:hsl(235, 46%, 20%);   
+}
+
+.box_user{
+    display: flex;
+    height: 70%;
+    border-radius: .7em;
+    background-color:hsl(246, 80%, 60%);
+    overflow: hidden;
+}
+
+
+
+.user_info > *{
+    margin: 0;
+}
+
+.user_info{ 
+    display: grid;
+    direction:row;
+    height: 50%;
+    margin-left: 20px;
+}
+.user_info img{
+    width: 50px;
+    height:50px;
+    margin:25px 0px ;
+    border-radius: 50%;
+    border: solid 2px white;
+}
+
+.user_info span{
+    font-size: .7rem;
+    color:hsl(236, 100%, 87%)
+}
+.user_info p, .user_info p span{
+    font-size: 2rem;
+    font-weight: 300;
+    display: block;
+    color:white;
+}
+
+.select_time{
+    font-size: .7rem;
+    margin-left:20px;
+    font-weight: 400; 
+}
+.btn_time{
+    color:hsl(235, 45%, 61%);
+    cursor: pointer;
+}
+
+.container_activities{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    border-radius: .7em
+}
+
+.style_work{
+    background:hsl(15, 100%, 70%) url(../images/icon-work.svg);
+}
+.style_play{
+    background:hsl(195, 74%, 62%) url(../images/icon-play.svg)
+}
+.style_social{
+    background: hsl(264, 64%, 52%) url(../images/icon-social.svg);
+}
+.style_study{
+    background: hsl(348, 100%, 68%) url(../images/icon-study.svg);
+}
+.style_exercise{
+    background: hsl(145, 58%, 55%) url(../images/icon-exercise.svg);
+}
+.style_selfcare{
+    background: hsl(43, 84%, 65%) url(/time-tracking-dashboard-main/images/icon-self-care.svg);
+}
+.style_work, .style_play, .style_study
+,.style_social,.style_selfcare,.style_exercise{
+    background-repeat: no-repeat;
+    background-size: 60px 60px;
+    background-position: 90% -12%;
+}
+.activities_info{
+    width: 100%;
+    height: 80%;
+    border-radius: .6em;
+    background:hsl(235, 46%, 20%) url(/time-tracking-dashboard-main/images/icon-ellipsis.svg);
+    background-repeat: no-repeat;
+    background-size: 15px 3px;
+    background-position: 85% 20%;
+    overflow: hidden;
+}
+.activities_info>*{
+    margin: 20px 20px;
+}
+.activities_info h1{
+    font-size: .7rem;
+    font-weight: 400;
+}
+.hours{
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 300;
+    margin:10px 20px;
+}
+.info_last_hours{
+    margin-top:10px;
+    font-size: .6rem;
+    font-weight: 300;
+    color: hsl(236, 100%, 87%);
+}
+
+.select{
+    color:white;
+}
+.active{
+    color:white;
+}
+
+@media (max-width: 780px){
+
+    main{
+        grid-template-rows: repeat(4, minmax(max-content,180px));
+        grid-template-columns: repeat(2, minmax(max-content,1fr));
+    }
+
+}
+
+/* medida para celular ¨*/
+@media (max-width: 375px){
+    body{
+        height: auto;
+    }
+    main{
+        grid-template-columns: minmax(max-content,250px);
+        grid-template-rows: repeat(7,minmax(min-content,130px));
+
+    }
+    .box_content-user-time{
+        grid-row: span 1;
+        
+    }
+    .select_time{
+        display: flex;
+        justify-content: space-around;
+        overflow: hidden;
+        margin:0;
+        font-size: .8rem;
+    }
+    .box_user{
+        justify-content: center;
+        height: 70%;
+    }
+
+    .user_info{
+       grid-template-areas:  
+        "imgperfil status "
+        "imgperfil name ";
+    }
+    .user_info img{
+        grid-area: imgperfil;
+        margin:0;
+        margin-right: 10px;
+    }
+    .user_info span{
+        grid-area: status;
+        
+    }
+    .user_info p{
+        grid-area: name;
+        
+    }
+    .user_info p span{
+        display: inline;
+        font-size: .8rem;
+    }
+    .user_info p {
+        font-size: .8rem;
+        align-self: flex-start;
+    }
+    .user_info{
+        align-self: center;
+        justify-content: center;
+        margin-left: 0;
+    }
+    .activities_info{
+        display: grid;
+        grid-template-areas:
+        "activity activity"
+        " hours info-hours";
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,1fr);
+    }
+
+    .activities_info h1{
+        grid-area: activity;
+        align-self: flex-end;
+        margin-bottom: 0;
+        
+    }
+    .activities_info .hours{
+        grid-area: hours;
+        font-size: 1.5rem;
+        margin-top: 3;
+    }
+    .activities_info .info_last_hours{
+        grid-area: info-hours;
+        margin-right: 0;
+        margin-left: 0;
+        justify-content: flex-start;
+        align-self: flex-start;
+        font-size: .8rem;
+    }
+    
+}
